@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NexVolt Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" style="text-decoration:none;">⚡ NexVolt Engineering</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="checkout-hero">
+        <div class="container">
+            <h1>Select Your Service &amp; Checkout</h1>
+            <p id="checkoutSubtitle">Choose a service below to see pricing, timeline, and proposed start date.</p>
+        </div>
+    </section>
+
+    <section class="checkout-section">
+        <div class="container">
+            <div id="serviceGrid" class="checkout-grid">
+                <!-- service cards injected by checkout.js -->
+            </div>
+
+            <div id="orderSummary" class="order-summary" style="display:none;">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Service</span>
+                    <strong id="summaryService">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Estimated Duration</span>
+                    <strong id="summaryDays">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Proposed Start Date</span>
+                    <strong id="summaryStart">—</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Proposed Completion Date</span>
+                    <strong id="summaryEnd">—</strong>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total Amount</span>
+                    <strong>
+                        <span id="summaryNGN">₦0</span>
+                        <span class="usd-amount" id="summaryUSD">($0.00)</span>
+                    </strong>
+                </div>
+                <button class="btn btn-primary pay-btn" id="payNowBtn">Pay Now</button>
+                <p class="secure-note">🔒 Secure checkout · Your project starts after confirmation</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Modal -->
+    <div class="quote-modal-overlay" id="paymentModalOverlay">
+        <div class="quote-modal payment-modal">
+            <button class="modal-close" id="closePaymentModal">✕</button>
+            <div class="modal-icon">💳</div>
+            <h3>Card Payment</h3>
+            <p>This is a demo payment form for design purposes. No real charge will be made.</p>
+
+            <form id="paymentForm" class="payment-form">
+                <label>
+                    Cardholder Name
+                    <input type="text" id="cardName" placeholder="e.g. Aliyu Bello" required>
+                </label>
+                <label>
+                    Card Number
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </label>
+                <div class="payment-form-row">
+                    <label>
+                        Expiry Date
+                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                    </label>
+                    <label>
+                        CVV
+                        <input type="text" id="cardCvv" placeholder="123" maxlength="3" required>
+                    </label>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelPaymentBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="confirmPayBtn">Pay <span id="paymentAmountLabel"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div class="quote-modal-overlay" id="processingModalOverlay">
+        <div class="quote-modal" style="text-align:center;">
+            <div class="spinner"></div>
+            <h3>Processing Payment...</h3>
+            <p>Please wait a moment.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 NexVolt Engineering Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

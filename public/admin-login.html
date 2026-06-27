@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - NexVolt Engineering</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-login-body">
+    <div class="login-card">
+        <div class="login-logo">⚡ NexVolt Engineering</div>
+        <h2>Admin Login</h2>
+        <p class="login-sub">Sign in to view client messages and manage invoices.</p>
+
+        <form id="loginForm" class="login-form">
+            <label>
+                Username
+                <input type="text" id="username" autocomplete="username" required>
+            </label>
+            <label>
+                Password
+                <input type="password" id="password" autocomplete="current-password" required>
+            </label>
+            <p id="loginError" class="login-error"></p>
+            <button type="submit" class="btn btn-primary">Log In</button>
+        </form>
+
+        <a href="index.html" class="back-link">← Back to website</a>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('loginError');
+            errorEl.textContent = '';
+
+            try {
+                const res = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password }),
+                });
+                const data = await res.json();
+                if (!res.ok) {
+                    errorEl.textContent = data.error || 'Login failed.';
+                    return;
+                }
+                window.location.href = 'admin.html';
+            } catch (err) {
+                errorEl.textContent = 'Could not reach the server.';
+            }
+        });
+    </script>
+</body>
+</html>

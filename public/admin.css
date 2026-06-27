@@ -1,0 +1,250 @@
+/* ========================================
+   ADMIN PAGES STYLES
+   ======================================== */
+
+/* ---------- Login ---------- */
+.admin-login-body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #6d28d9 50%, var(--secondary-color) 100%);
+}
+
+.login-card {
+    width: min(90%, 400px);
+    background: white;
+    border-radius: 18px;
+    padding: 2.5rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.login-logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.login-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.login-sub {
+    color: #8a93a3;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.login-form input {
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.12);
+}
+
+.login-form .btn {
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.login-error {
+    color: #b91c1c;
+    font-size: 0.85rem;
+    min-height: 1.1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+/* ---------- Dashboard ---------- */
+.admin-wrap {
+    background: var(--light-bg);
+    min-height: calc(100vh - 80px);
+    padding: 2rem 0 4rem;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-tab {
+    background: white;
+    border: 2px solid var(--border-color);
+    color: #5b6472;
+    font-weight: 600;
+    padding: 0.7rem 1.4rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.admin-tab.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.admin-stat-card .num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.admin-stat-card .label {
+    font-size: 0.8rem;
+    color: #8a93a3;
+    margin-top: 0.2rem;
+}
+
+.admin-table-wrap {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.admin-table th {
+    text-align: left;
+    background: var(--light-bg);
+    color: var(--primary-color);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 0.9rem 1rem;
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 0.9rem;
+    color: #374151;
+    vertical-align: top;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.message-cell {
+    max-width: 240px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #5b6472;
+}
+
+.loading-row, .empty-row {
+    text-align: center;
+    color: #8a93a3;
+    padding: 2rem !important;
+}
+
+.status-pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
+
+.status-new { background: rgba(0, 116, 217, 0.1); color: var(--secondary-color); }
+.status-contacted { background: rgba(217, 119, 6, 0.1); color: #b45309; }
+.status-checkout { background: rgba(109, 40, 217, 0.1); color: #6d28d9; }
+.status-paid { background: rgba(16, 185, 129, 0.12); color: #047857; }
+
+.action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.4rem 0.7rem;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.action-btn.gmail {
+    background: #fce8e6;
+    color: #c5221f;
+}
+
+.action-btn.whatsapp {
+    background: #dcf8c6;
+    color: #128c1e;
+}
+
+.action-btn.view {
+    background: rgba(0, 116, 217, 0.1);
+    color: var(--secondary-color);
+}
+
+.status-select {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}

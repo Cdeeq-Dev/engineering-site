@@ -1,0 +1,17 @@
+{
+  "name": "nexvolt-engineering",
+  "version": "1.0.0",
+  "description": "NexVolt Engineering Ltd - website backend with client CRM, checkout, and invoicing",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "qrcode": "^1.5.4",
+    "dotenv": "^16.4.5"
+  }
+}
