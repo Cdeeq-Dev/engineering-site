@@ -12,7 +12,7 @@ const SERVICES = [
     name: 'Industrial Installation',
     icon: '⚡',
     description: 'Complete industrial electrical installation with precision and safety standards.',
-    priceNGN: 9000000,
+    priceNGN: 9500000,
     days: 14,
   },
   {
