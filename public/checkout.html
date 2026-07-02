@@ -74,20 +74,20 @@
             <form id="paymentForm" class="payment-form">
                 <label>
                     Cardholder Name
-                    <input type="text" id="cardName" placeholder="e.g. Aliyu Bello" required>
+                    <input type="text" id="cardName" placeholder="e.g. Aliyu Bello" autocomplete="off" required>
                 </label>
                 <label>
                     Card Number
-                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="off" inputmode="numeric" required>
                 </label>
                 <div class="payment-form-row">
                     <label>
                         Expiry Date
-                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                        <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" autocomplete="off" inputmode="numeric" required>
                     </label>
                     <label>
                         CVV
-                        <input type="text" id="cardCvv" placeholder="123" maxlength="3" required>
+                        <input type="text" id="cardCvv" placeholder="123" maxlength="3" autocomplete="off" inputmode="numeric" required>
                     </label>
                 </div>
                 

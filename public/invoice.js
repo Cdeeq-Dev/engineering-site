@@ -3,8 +3,38 @@
 
 const params = new URLSearchParams(window.location.search);
 const invoiceId = params.get('invoiceId');
+const companyName = 'NexVolt Engineering Ltd';
 
 const invoiceCard = document.getElementById('invoiceCard');
+const printPromptOverlay = document.getElementById('printPromptOverlay');
+const printPromptPrintBtn = document.getElementById('printPromptPrint');
+const printPromptCancelBtn = document.getElementById('printPromptCancel');
+
+function openPrintPrompt() {
+    if (!printPromptOverlay) return;
+    printPromptOverlay.classList.add('active');
+    printPromptOverlay.setAttribute('aria-hidden', 'false');
+}
+
+function closePrintPrompt() {
+    if (!printPromptOverlay) return;
+    printPromptOverlay.classList.remove('active');
+    printPromptOverlay.setAttribute('aria-hidden', 'true');
+}
+
+printPromptPrintBtn?.addEventListener('click', () => {
+    closePrintPrompt();
+    window.print();
+});
+
+printPromptCancelBtn?.addEventListener('click', closePrintPrompt);
+printPromptOverlay?.addEventListener('click', (e) => {
+    if (e.target === printPromptOverlay) closePrintPrompt();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePrintPrompt();
+});
 
 init();
 
@@ -20,13 +50,9 @@ async function init() {
         const data = await res.json();
         renderInvoice(data.invoice);
 
-        // Prompt the user to print shortly after the invoice renders
         setTimeout(() => {
-            const wantsPrint = confirm('Your invoice is ready. Would you like to print it now?');
-            if (wantsPrint) {
-                window.print();
-            }
-        }, 600);
+            openPrintPrompt();
+        }, 700);
     } catch (err) {
         invoiceCard.innerHTML = `<p style="text-align:center;color:#b91c1c;">Could not load invoice: ${err.message}</p>`;
     }

@@ -214,17 +214,6 @@
     gap: 1rem;
 }
 
-.payment-demo-badge {
-    background: rgba(255, 65, 54, 0.08);
-    color: #b91c1c;
-    border: 1px dashed rgba(255, 65, 54, 0.35);
-    border-radius: 8px;
-    padding: 0.6rem 0.8rem;
-    font-size: 0.78rem;
-    text-align: center;
-    font-weight: 600;
-}
-
 /* ---------- Spinner ---------- */
 .spinner {
     width: 48px;
