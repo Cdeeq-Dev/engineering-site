@@ -30,6 +30,7 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
@@ -52,6 +53,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -1303,16 +1305,51 @@ body {
 
 /* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
-    /* Navigation */
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .navbar {
+        padding: 0.85rem 0;
+    }
+
     .hamburger {
         display: flex;
     }
 
     .nav-links {
         display: none;
+        position: absolute;
+        top: calc(100% + 0.6rem);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        padding: 0.8rem 1rem;
+        border-radius: 12px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        z-index: 1200;
     }
 
-    /* Hero */
+    .nav-links a {
+        display: block;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .hero {
+        padding: 60px 0 40px;
+    }
+
     .hero h1 {
         font-size: 2.2rem;
     }
@@ -1323,14 +1360,25 @@ body {
 
     .hero-buttons {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn,
+    .modal-actions .btn,
+    .contact-success .btn {
+        width: 100%;
     }
 
     .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* About */
-    .about-content {
+    .about-content,
+    .contact-content,
+    .services-grid,
+    .portfolio-grid,
+    .testimonials-grid,
+    .footer-content {
         grid-template-columns: 1fr;
     }
 
@@ -1338,54 +1386,55 @@ body {
         grid-template-columns: 1fr;
     }
 
-    /* Contact */
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
     .contact-info {
         grid-template-columns: 1fr;
     }
 
-    /* Chat Widget */
-    .chat-widget {
-        width: 100%;
-        max-height: 400px;
-        right: 0;
-        bottom: 60px;
-        border-radius: 10px;
-    }
-
-    .chat-toggle {
-        bottom: 10px;
-    }
-
-    .whatsapp-btn {
-        bottom: 70px;
-    }
-
-    /* Form */
     .form-row {
         grid-template-columns: 1fr;
     }
 
-    /* Services */
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Why Grid */
     .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* Testimonials */
-    .testimonials-grid {
-        grid-template-columns: 1fr;
+    .quote-modal {
+        padding: 1.5rem;
+    }
+
+    .chat-widget {
+        width: calc(100% - 20px);
+        left: 10px;
+        right: 10px;
+        max-height: 420px;
+        bottom: 70px;
+        border-radius: 10px;
+    }
+
+    .chat-toggle {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .whatsapp-btn {
+        bottom: 72px;
+        right: 12px;
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .hero {
+        padding: 48px 0 36px;
+    }
+
     .hero h1 {
         font-size: 1.8rem;
     }
@@ -1412,12 +1461,14 @@ body {
     }
 
     .filter-btn {
+        width: 100%;
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
 
     .contact-card {
-        padding: 1.5rem 1rem;
+        padding: 1.25rem 1rem;
+        height: auto;
     }
 
     .why-grid {
@@ -1425,7 +1476,31 @@ body {
     }
 
     .quote-form .form-row input,
-    .quote-form textarea {
+    .quote-form textarea,
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea,
+    .form-row input,
+    .form-row select {
         font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .quote-modal {
+        padding: 1.1rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .quote-modal-overlay {
+        padding: 0.75rem;
+    }
+
+    .portfolio-item img,
+    .portfolio-image {
+        height: 220px;
     }
 }

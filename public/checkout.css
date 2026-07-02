@@ -229,8 +229,80 @@
     to { transform: rotate(360deg); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+    .checkout-hero {
+        padding: 56px 0 42px;
+    }
+
+    .checkout-section {
+        padding: 40px 0 64px;
+    }
+
+    .checkout-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .order-summary {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout-hero {
+        padding: 48px 0 36px;
+    }
+
+    .checkout-section {
+        padding: 32px 0 56px;
+    }
+
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-card {
+        padding: 1.25rem;
+    }
+
+    .checkout-card .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .order-summary {
+        padding: 1.2rem;
+    }
+
+    .summary-row {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkout-hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .checkout-hero p {
+        font-size: 0.95rem;
+    }
+
+    .checkout-card .desc {
+        min-height: auto;
+    }
+
     .payment-form-row {
         grid-template-columns: 1fr;
+    }
+
+    .payment-modal {
+        width: min(100%, 94vw);
+        padding: 1rem;
+    }
+
+    .payment-form input {
+        font-size: 16px;
     }
 }

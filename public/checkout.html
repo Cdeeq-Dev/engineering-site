@@ -17,6 +17,11 @@
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
+            <div class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -117,5 +122,34 @@
     </footer>
 
     <script src="checkout.js"></script>
+    <script>
+        const navbarHamburger = document.querySelector('.navbar .hamburger');
+        const navbarLinks = document.querySelector('.navbar .nav-links');
+
+        if (navbarHamburger && navbarLinks) {
+            navbarHamburger.addEventListener('click', () => {
+                const isOpen = navbarLinks.classList.toggle('open');
+                navbarLinks.style.display = isOpen ? 'flex' : 'none';
+            });
+
+            document.querySelectorAll('.navbar .nav-links a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navbarLinks.classList.remove('open');
+                        navbarLinks.style.display = 'none';
+                    }
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    navbarLinks.classList.remove('open');
+                    navbarLinks.style.display = 'flex';
+                } else if (!navbarLinks.classList.contains('open')) {
+                    navbarLinks.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
